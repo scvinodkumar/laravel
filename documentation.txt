@@ -1,0 +1,68 @@
+To create controller -- php artisan make:controller pageController
+
+To create controller with all resource -- php artisan make:controller SongsController --resource
+
+To list all routes -- php artisan route:list
+
+To create table structe -- php artisan make:migration create_my_songs_table --create=songs
+
+To create table -- php artisan migrate
+
+Tinker is command prompt to deal with database operation
+
+To connect tinker - php artisan tinker
+To insert new record in songs table - DB::table('songs')->insert(['title'=>'Closer','artist'=>'chainsmoker','created_at'=>new DateTime,'updated_at'=>new DateTime]);
+
+To get all the records from the tabke - DB::table('songs')->get();
+To get specifying record - DB::table('songs')->where('id',1)->get();
+
+To create table - php artisan make:migration create_user_table --create=users
+To create table - php artisan make:migration create_passports_table --create=passports
+To create the table actual - php artisan migrate
+
+php artisan tinker
+
+DB::table('users')->insert(['name'=>'Vinodkumar','created_at'=>new DateTime,'updated_at'=>new DateTime]);
+
+DB::table('users')->insert(['name'=>'Punitha','created_at'=>new DateTime,'updated_at'=>new DateTime]);
+
+
+DB::table('users')->get();
+
+To create model - php artisan make:model user
+To create passport model - php artisan make:model passport
+php artisan tinker
+App\user::all();
+
+DB::table('passports')->insert(['number'=>'123456','user_id'=>'1','created_at'=>new DateTime,'updated_at'=>new DateTime]);
+DB::table('passports')->insert(['number'=>'123876','user_id'=>'2','created_at'=>new DateTime,'updated_at'=>new DateTime]);
+App\passport::all()
+
+App\user::find(1)->passport
+App\passport::find(1)->user
+
+
+DB::table('mobile')->insert(['mobile'=>'9740483311','user_id'=>'1','created_at'=>new DateTime,'updated_at'=>new DateTime]);
+DB::table('mobile')->insert(['mobile'=>'9894946054','user_id'=>'1','created_at'=>new DateTime,'updated_at'=>new DateTime]);
+DB::table('mobile')->insert(['mobile'=>'9845110218','user_id'=>'2','created_at'=>new DateTime,'updated_at'=>new DateTime]);
+
+To create middleware:
+php artisan make:middleware test
+php artisan make:controller testController
+
+To create mail controller:
+php artisan make:controller mailController
+php artisan make:mail sendmail
+
+To create email template:
+php artisan make:mail newMail --markdown=email
+
+To generate dummy data:
+php artisan db:seed
+php artisan make:seeder TestSeeder
+php artisan db:seed
+php artisan db:seed --class=TestSeeder
+php artisan db:seed --class=UserSeeder
+
+To generate pagination:
+php artisan make:controller Pagination
